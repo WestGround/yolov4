@@ -17,11 +17,11 @@ for fname in os.listdir(os.getcwd()):
     bright = ImageEnhance.Brightness(img)
     img = bright.enhance(0.9)
     img = img.filter(ImageFilter.BoxBlur(5))
-    print("Modify: " + os.getcwd() + "/" + fname + n)
+    print("Modify: " + os.getcwd() + "/" + fname + " (" + n + ")")
     n = n + 1
     img.save(fname[:-4] + "-1.jpg")
   elif fname.endswith(".txt"):
-    print("Copy: " + os.getcwd() + "/" + fname + n)
+    print("Copy: " + os.getcwd() + "/" + fname + " (" + n + ")")
     n = n + 1
     os.system("cp " + fname + " " + fname[:-4] + "-1.txt")
 
