@@ -16,9 +16,10 @@ for fname in os.listdir(os.getcwd()):
     bright = ImageEnhance.Brightness(img)
     img = bright.enhance(0.9)
     img = img.filter(ImageFilter.BoxBlur(5))
-    plt.imshow(img)
+    print("Modify: " + os.getcwd() + fname)
     img.save(fname[:-4] + "-1.jpg")
   elif fname.endswith(".txt"):
+    print("Copy: " + os.getcwd() + fname)
     os.system("cp " + fname + " " + fname[:-4] + "-1.txt")
 
 os.chdir(os.path.join("..", ".."))
