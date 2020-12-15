@@ -3,6 +3,7 @@ from PIL import Image, ImageEnhance, ImageFilter
 import matplotlib.pylab as plt
 
 os.chdir(os.path.join("data", "obj"))
+n = 1
 for fname in os.listdir(os.getcwd()):
   if fname.endswith(".jpg"):
     img = Image.open(fname)
@@ -16,10 +17,11 @@ for fname in os.listdir(os.getcwd()):
     bright = ImageEnhance.Brightness(img)
     img = bright.enhance(0.9)
     img = img.filter(ImageFilter.BoxBlur(5))
-    print("Modify: " + os.getcwd() + fname)
+    print("Modify: " + os.getcwd() + "/" + fname + n)
+    n = n + 1
     img.save(fname[:-4] + "-1.jpg")
   elif fname.endswith(".txt"):
-    print("Copy: " + os.getcwd() + fname)
+    print("Copy: " + os.getcwd() + "/" + fname + n)
     os.system("cp " + fname + " " + fname[:-4] + "-1.txt")
 
 os.chdir(os.path.join("..", ".."))
