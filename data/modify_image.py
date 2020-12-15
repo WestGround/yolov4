@@ -6,7 +6,10 @@ os.chdir(os.path.join("data", "obj"))
 n = 1
 for fname in os.listdir(os.getcwd()):
   if fname.endswith(".jpg"):
+    print("Modify: " + os.getcwd() + "/" + fname + " (" + str(n) + ")")
+    n = n + 1
     img = Image.open(fname)
+    img = img.convert('RGB')
     for x in range(0,img.size[0]):
       for y in range(0,img.size[1]):
         rgb = img.getpixel((x,y))
@@ -17,8 +20,6 @@ for fname in os.listdir(os.getcwd()):
     bright = ImageEnhance.Brightness(img)
     img = bright.enhance(0.9)
     img = img.filter(ImageFilter.BoxBlur(5))
-    print("Modify: " + os.getcwd() + "/" + fname + " (" + str(n) + ")")
-    n = n + 1
     img.save(fname[:-4] + "-1.jpg")
   elif fname.endswith(".txt"):
     print("Copy: " + os.getcwd() + "/" + fname + " (" + str(n) + ")")
