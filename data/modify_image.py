@@ -22,6 +22,7 @@ for fname in os.listdir(os.getcwd()):
     img.save(fname[:-4] + "-1.jpg")
   elif fname.endswith(".txt"):
     print("Copy: " + os.getcwd() + "/" + fname + n)
+    n = n + 1
     os.system("cp " + fname + " " + fname[:-4] + "-1.txt")
 
 os.chdir(os.path.join("..", ".."))
