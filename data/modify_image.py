@@ -1,6 +1,8 @@
 import os
-from PIL import Image, ImageEnhance, ImageFilter
+from PIL import Image, ImageFile, ImageEnhance, ImageFilter
 import matplotlib.pylab as plt
+
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 os.chdir(os.path.join("data", "obj"))
 n = 1
